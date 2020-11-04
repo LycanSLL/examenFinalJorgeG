@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "cc038fd7-36d5-4d4a-96b5-baefd10c49ce",
+		"name": "examen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00b2fe25-c80d-4cea-80e9-c0ae0c2aa311",
+						"exec": [
+							"pm.test(\"VALIDAR STATUS\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/status",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRandomName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"name": "getRandomName",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User",
+								"value": "testuser",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "testpass",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"testuser\" : \"testuser\"\n\"testpass\" : \"testpass\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/randomName",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"randomName"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, x-access-token"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, OPTIONS, PUT, DELETE, UPDATE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Content-Length"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "86400"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Www-Authenticate",
+							"value": "Basic realm=Restricted"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "a83b05bc-d819-4aca-8518-c954e4f8e636"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 03 Nov 2020 23:19:29 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Please login first\"\n}"
+				}
+			]
+		},
+		{
+			"name": "getRandomNameYsameName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
