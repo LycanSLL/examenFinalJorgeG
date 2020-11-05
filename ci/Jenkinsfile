@@ -11,9 +11,6 @@ pipeline {
                 '''
             }
         }
-    
-    }
-    stages {
         stage('Jmeter tests') {
             steps {
                 sh '''
@@ -22,7 +19,9 @@ pipeline {
                 jmeter -n -t examen_carga.jmx
                 '''
             }
-        }
+    
+    }
+    
     
     }
 }
