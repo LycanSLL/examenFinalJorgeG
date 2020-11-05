@@ -4,9 +4,22 @@ pipeline {
         stage('Newman tests') {
             steps {
                 sh '''
+                node --
                 cd api
                 cd newman
-                newman run examen.postman_collection.json -e examen.postman_environment.json 
+                newman run examen.postman_collection.json -e examen.postman_environment.json
+                '''
+            }
+        }
+    
+    }
+    stages {
+        stage('Jmeter tests') {
+            steps {
+                sh '''
+               
+                cd load
+                jmeter -n -t examen_carga.jmx
                 '''
             }
         }
