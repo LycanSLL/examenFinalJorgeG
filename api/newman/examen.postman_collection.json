@@ -38,22 +38,92 @@
 		},
 		{
 			"name": "putName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "85713c7e-1e96-4aa6-af34-2e44c3d649d6",
+						"exec": [
+							"pm.test(\"Status code is 406\", function () {",
+							"pm.response.to.have.status(406);",
+							"});",
+							"",
+							"pm.test(\"Body matches 'Name was not provided'\", function () {",
+							"pm.expect(pm.response.text()).to.include(\"Name was not provided\")",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{baseurl}}/updateName",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"updateName"
+					]
 				}
 			},
 			"response": []
 		},
 		{
 			"name": "getRandomName",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1f28e03e-c570-43f7-a905-60200a0547f5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a0e5d6f-06fe-45f7-a99d-049119d4a67a",
+						"exec": [
+							"pm.test(\"Verify response \"), function () {",
+							"var jsonData = pm.response.json();",
+							"pm.expect(jsonData.response).to.eql(\"Please login first\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": ""
+					"raw": "{{baseurl}}/randomName",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"randomName"
+					]
 				}
 			},
 			"response": [

@@ -11,9 +11,7 @@ pipeline {
                 '''
             }
         }
-    
-    }
-    stages {
+        
         stage('Jmeter tests') {
             steps {
                 sh '''
@@ -25,4 +23,5 @@ pipeline {
         }
     
     }
+    
 }
