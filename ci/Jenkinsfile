@@ -20,7 +20,7 @@ pipeline {
                 '''
             }
         }
-        stage('Rest Assured Tests') {
+        stage('Restassured tests') {
             steps {
                 sh '''
                 cd api
